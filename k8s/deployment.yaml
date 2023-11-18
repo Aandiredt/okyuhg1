@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okml
+  template:
+    metadata:
+      labels:
+        app: okml
+    spec:
+      containers:
+      - image: okteto.dev/okml:latest
+        name: okml
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "2300e258-a5eb-45b6-8cdc-d50a8b7d394f"
+        - name: Vless_Path
+          value: "/wjkbvhjcxlbzb"
+        - name: Vmess_UUID
+          value: "2300e258-a5eb-45b6-8cdc-d50a8b7d394f"
+        - name: Vmess_Path
+          value: "/nklbrlaiulhb"
+        - name: Share_Path
+          value: "/v2link"
